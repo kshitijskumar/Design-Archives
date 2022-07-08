@@ -83,15 +83,11 @@ class CardManager(
 
     override fun presentAllCards() {
         var firstCard: CardLink? = deckTopCardLink
-        var deckCount = 0
 
         while (firstCard != null) {
             println(firstCard.card)
-            deckCount += 1
             firstCard = firstCard.nextCardLink
         }
-
-        println("Total cards presented: $deckCount")
     }
 
     private fun getCurrentDeckSize(): Int {

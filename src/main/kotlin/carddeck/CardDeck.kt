@@ -23,10 +23,9 @@ class CardDeck {
         var mover: CardLink? = setupMover()
 
         (2..10).forEach {
-            val card = Card(
-                cardName = it.toString(),
-                cardSuit = cardSuit,
-                cardType = CardType.NUMBERED
+            val card = Card.NumberedCard(
+                number = it,
+                cardSuit = cardSuit
             )
 
             val cardLink = CardLink(
@@ -43,12 +42,11 @@ class CardDeck {
             }
         }
 
-        listOf(CardType.ACE, CardType.JACK, CardType.KING, CardType.QUEEN).forEach {
+        listOf(FaceType.ACE, FaceType.JACK, FaceType.KING, FaceType.QUEEN).forEach {
             val cardLink = CardLink(
-                card = Card(
-                    cardName = it.name,
-                    cardSuit = cardSuit,
-                    cardType = it
+                card = Card.FaceCard(
+                    faceType = it,
+                    cardSuit = cardSuit
                 ),
                 nextCardLink = null
             )
